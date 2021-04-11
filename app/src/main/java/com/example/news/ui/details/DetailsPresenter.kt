@@ -1,15 +1,15 @@
-package com.example.news.ui.news
+package com.example.news.ui.details
 
 import co.zsmb.rainbowcake.withIOContext
 import com.example.news.domain.NewsInteractor
 import javax.inject.Inject
 
-class NewsPresenter @Inject constructor(
+class DetailsPresenter @Inject constructor(
     private val newsInteractor: NewsInteractor
 ) {
 
-    suspend fun getData(): String = withIOContext {
-        newsInteractor.getNews()
+    suspend fun getData(id: String): String = withIOContext {
+        newsInteractor.getNewsById(id)
         ""
     }
 
