@@ -11,7 +11,7 @@ class DetailsViewModel @Inject constructor(
 
     fun load() = execute {
         viewState =
-            DetailsReady(detailsPresenter.getData())
+            DetailsReady(detailsPresenter.getData(""))
     }
 
 }
