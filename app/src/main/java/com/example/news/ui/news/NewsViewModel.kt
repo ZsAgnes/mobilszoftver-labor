@@ -11,4 +11,9 @@ class NewsViewModel @Inject constructor(
         viewState = NewsReady(newsPresenter.getData())
     }
 
+    fun saveNews() = execute {
+        val article = (viewState as NewsReady).data?.articles?.get(0)
+        newsPresenter.saveNews(article)
+    }
+
 }

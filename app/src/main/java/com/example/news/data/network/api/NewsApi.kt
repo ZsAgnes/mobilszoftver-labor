@@ -1,5 +1,6 @@
 package com.example.news.data.network.api
 
+import com.example.news.data.network.model.Article
 import com.example.news.data.network.model.NewsList
 import retrofit2.http.*
 
@@ -13,7 +14,8 @@ interface NewsApi {
     @POST("/v2/news/{userId}")
     suspend fun saveArticle(
         @Path("userId") userId: String,
-        @Query("apiKey") apiKey: String
+        @Query("apiKey") apiKey: String,
+        @Body article: Article
     )
 
     @DELETE("/v2/news/{newsId}")
