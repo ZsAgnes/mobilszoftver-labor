@@ -2,6 +2,7 @@ package com.example.news.data.network
 
 import android.content.Context
 import com.example.news.R
+import com.example.news.data.network.api.MockNewsApi
 import com.example.news.data.network.api.NewsApi
 import com.example.news.data.network.model.Article
 import com.example.news.data.network.model.NewsList
@@ -12,6 +13,7 @@ import javax.inject.Singleton
 @Singleton
 class NetworkDataSource @Inject constructor(
     private val newsApi: NewsApi,
+    private val mockNewsApi: MockNewsApi,
     private val context: Context
 ) {
     suspend fun getAllNews(): NewsList? {
@@ -19,7 +21,7 @@ class NetworkDataSource @Inject constructor(
     }
 
     suspend fun saveArticle(article: Article) {
-        newsApi.saveArticle(
+        mockNewsApi.saveArticle(
             userId = UUID.randomUUID().toString(),
             apiKey = context.getString(R.string.apiKey),
             article = article
@@ -27,6 +29,6 @@ class NetworkDataSource @Inject constructor(
     }
 
     suspend fun deleteArticle(newsId: String) {
-        newsApi.deleteArticle(newsId = newsId, apiKey = context.getString(R.string.apiKey))
+        mockNewsApi.deleteArticle(newsId = newsId, apiKey = context.getString(R.string.apiKey))
     }
 }

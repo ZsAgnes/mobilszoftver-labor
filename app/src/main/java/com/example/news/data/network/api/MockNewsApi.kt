@@ -4,8 +4,9 @@ import com.example.news.data.network.model.Article
 import com.example.news.data.network.model.NewsList
 import com.example.news.data.network.model.Source
 import kotlinx.coroutines.delay
+import javax.inject.Inject
 
-class MockNewsApi : NewsApi {
+class MockNewsApi @Inject constructor() : IMockNewsApi {
     override suspend fun getTopHeadlines(country: String, apiKey: String): NewsList {
         delay(1000)
         return NewsList(

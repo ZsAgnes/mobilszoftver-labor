@@ -1,6 +1,7 @@
 package com.example.news.data.network
 
 import com.example.news.BuildConfig
+import com.example.news.data.network.api.IMockNewsApi
 import com.example.news.data.network.api.MockNewsApi
 import com.example.news.data.network.api.NewsApi
 import com.facebook.stetho.okhttp3.StethoInterceptor
@@ -10,6 +11,7 @@ import dagger.Provides
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -45,6 +47,12 @@ abstract class NetworkModule {
         @Provides
         @Singleton
         fun provideNewsApi(retrofit: Retrofit): NewsApi {
+            return retrofit.create()
+        }
+
+        @Provides
+        @Singleton
+        fun provideMockNewsApi(): IMockNewsApi {
             return MockNewsApi()
         }
     }
