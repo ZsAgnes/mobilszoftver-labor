@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">News</string>
+
+    <string name="apiKey">3cedc53d3ea34f1d9644f954294493ef</string>
+
     <string name="details_fragment_title">DetailsFragment</string>
     <string name="news_fragment_title">NewsFragment</string>
     <string name="about_fragment_title">AboutFragment</string>

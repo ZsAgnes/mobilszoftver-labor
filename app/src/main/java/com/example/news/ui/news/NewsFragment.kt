@@ -5,6 +5,7 @@ import android.view.View
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.dagger.getViewModelFromFactory
 import com.example.news.R
+import kotlinx.android.synthetic.main.fragment_news.*
 
 class NewsFragment : RainbowCakeFragment<NewsViewState, NewsViewModel>() {
 
@@ -14,7 +15,9 @@ class NewsFragment : RainbowCakeFragment<NewsViewState, NewsViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // TODO Setup views
+        getAllNews.setOnClickListener {
+            viewModel.load()
+        }
     }
 
     override fun onStart() {
@@ -24,7 +27,9 @@ class NewsFragment : RainbowCakeFragment<NewsViewState, NewsViewModel>() {
     }
 
     override fun render(viewState: NewsViewState) {
-        // TODO Render state
+        when (viewState) {
+            is NewsReady -> newsText.text = viewState.data?.totalResults.toString()
+        }
     }
 
 }

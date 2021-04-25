@@ -1,11 +1,15 @@
 package com.example.news.domain
 
+import com.example.news.data.network.NetworkDataSource
+import com.example.news.data.network.model.NewsList
 import javax.inject.Inject
 
 class NewsInteractor @Inject constructor(
+    private val networkDataSource: NetworkDataSource
 ) {
-    suspend fun getNews() {
-        // TODO call networkDataSource.getNews()
+    suspend fun getNews(): NewsList? {
+        return networkDataSource.getAllNews()
+
     }
 
     suspend fun getNewsById(id: String) {
@@ -13,10 +17,10 @@ class NewsInteractor @Inject constructor(
     }
 
     suspend fun saveNews(id: String) {
-        // TODO call networkDataSource.saveNews(id)
+        networkDataSource.saveArticle()
     }
 
     suspend fun deleteNews(id: String) {
-        // TODO call networkDataSource.deleteNews(id)
+        networkDataSource.deleteArticle(id)
     }
 }
