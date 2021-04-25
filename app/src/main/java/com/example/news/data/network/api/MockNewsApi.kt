@@ -42,7 +42,7 @@ class MockNewsApi : NewsApi {
         )
     }
 
-    override suspend fun saveArticle(userId: String, apiKey: String) {
+    override suspend fun saveArticle(userId: String, apiKey: String, article: Article) {
         delay(1000)
     }
 

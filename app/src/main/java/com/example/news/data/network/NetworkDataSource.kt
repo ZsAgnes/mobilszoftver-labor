@@ -3,6 +3,7 @@ package com.example.news.data.network
 import android.content.Context
 import com.example.news.R
 import com.example.news.data.network.api.NewsApi
+import com.example.news.data.network.model.Article
 import com.example.news.data.network.model.NewsList
 import java.util.*
 import javax.inject.Inject
@@ -17,10 +18,11 @@ class NetworkDataSource @Inject constructor(
         return newsApi.getTopHeadlines(country = "hu", apiKey = context.getString(R.string.apiKey))
     }
 
-    suspend fun saveArticle() {
+    suspend fun saveArticle(article: Article) {
         newsApi.saveArticle(
             userId = UUID.randomUUID().toString(),
-            apiKey = context.getString(R.string.apiKey)
+            apiKey = context.getString(R.string.apiKey),
+            article = article
         )
     }
 

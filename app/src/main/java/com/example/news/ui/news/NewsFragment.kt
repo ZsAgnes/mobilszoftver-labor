@@ -18,6 +18,10 @@ class NewsFragment : RainbowCakeFragment<NewsViewState, NewsViewModel>() {
         getAllNews.setOnClickListener {
             viewModel.load()
         }
+
+        saveNews.setOnClickListener {
+            viewModel.saveNews()
+        }
     }
 
     override fun onStart() {
