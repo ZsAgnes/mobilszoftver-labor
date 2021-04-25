@@ -2,8 +2,9 @@ package com.example.news.data.disk.dao
 
 import com.example.news.data.disk.model.RoomArticle
 import java.util.*
+import javax.inject.Inject
 
-class MockNewsDao : IMockNewsDao {
+class MockNewsDao @Inject constructor() : IMockNewsDao {
     override suspend fun getAll(): List<RoomArticle> {
         return listOf(
             RoomArticle(
