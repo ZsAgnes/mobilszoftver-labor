@@ -19,10 +19,6 @@ class NewsInteractor @Inject constructor(
         return diskDataSource.getAll()
     }
 
-    suspend fun getNewsById(id: String) {
-        // TODO call networkDataSource.getNews(id)
-    }
-
     suspend fun saveNews(article: Article) {
         networkDataSource.saveArticle(article)
         diskDataSource.saveArticle(article)

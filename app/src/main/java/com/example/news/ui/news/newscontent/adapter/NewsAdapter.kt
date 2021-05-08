@@ -13,7 +13,7 @@ import com.google.android.material.textview.MaterialTextView
 import kotlinx.android.synthetic.main.fragment_news_list_item.view.*
 import timber.log.Timber
 
-class NewsAdapter() :
+class NewsAdapter :
     ListAdapter<UiArticle, NewsAdapter.ViewHolder>(ArticleComparator) {
 
     var listener: Listener? = null

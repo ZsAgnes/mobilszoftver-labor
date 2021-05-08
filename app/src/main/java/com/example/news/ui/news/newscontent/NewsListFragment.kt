@@ -6,10 +6,14 @@ import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.dagger.getViewModelFromFactory
 import co.zsmb.rainbowcake.navigation.extensions.applyArgs
 import co.zsmb.rainbowcake.navigation.extensions.requireBoolean
+import co.zsmb.rainbowcake.navigation.navigator
 import com.example.news.R
+import com.example.news.ui.details.DetailsFragment
 import com.example.news.ui.news.newscontent.adapter.NewsAdapter
 import com.example.news.ui.news.newscontent.model.UiArticle
 import kotlinx.android.synthetic.main.fragment_news_list.*
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 class NewsListFragment : RainbowCakeFragment<NewsListViewState, NewsListViewModel>,
     NewsAdapter.Listener {
@@ -82,7 +86,7 @@ class NewsListFragment : RainbowCakeFragment<NewsListViewState, NewsListViewMode
     }
 
     override fun onItemSelected(article: UiArticle) {
-//        TODO("Not yet implemented")
+        navigator?.add(DetailsFragment.newInstance(Json.encodeToString(article)))
     }
 
     override fun onDestroy() {

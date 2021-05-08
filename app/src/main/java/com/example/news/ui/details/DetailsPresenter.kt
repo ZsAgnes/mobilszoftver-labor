@@ -9,8 +9,8 @@ class DetailsPresenter @Inject constructor(
 ) {
 
     suspend fun getData(id: String): String = withIOContext {
-        newsInteractor.getNewsById(id)
-        ""
+
+    ""
     }
 
 }

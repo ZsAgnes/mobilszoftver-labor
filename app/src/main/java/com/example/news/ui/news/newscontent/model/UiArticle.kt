@@ -1,14 +1,12 @@
 package com.example.news.ui.news.newscontent.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.example.news.data.disk.model.RoomArticle
 import com.example.news.data.network.model.Article
+import kotlinx.serialization.Serializable
 import java.util.*
 
-@Entity(tableName = "news")
+@Serializable
 data class UiArticle(
-    @PrimaryKey
     val id: String,
     val author: String?,
     val content: String?,

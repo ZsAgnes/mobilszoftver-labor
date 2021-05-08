@@ -13,4 +13,5 @@
     <string name="news_tab_actual">Aktuális</string>
     <string name="news_tab_saved">Elmentett</string>
     <string name="news_title">Cikkek</string>
+    <string name="news_details_delete">Törlés</string>
 </resources>
