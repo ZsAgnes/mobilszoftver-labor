@@ -5,6 +5,7 @@ import co.zsmb.rainbowcake.dagger.ViewModelKey
 import com.example.news.ui.about.AboutViewModel
 import com.example.news.ui.details.DetailsViewModel
 import com.example.news.ui.news.NewsViewModel
+import com.example.news.ui.news.newscontent.NewsListViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -27,4 +28,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(AboutViewModel::class)
     abstract fun bindAboutViewModel(aboutViewModel: AboutViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(NewsListViewModel::class)
+    abstract fun bindNewsListViewModel(newsListViewModel: NewsListViewModel): ViewModel
 }

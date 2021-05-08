@@ -6,4 +6,7 @@
     <string name="details_fragment_title">DetailsFragment</string>
     <string name="news_fragment_title">NewsFragment</string>
     <string name="about_fragment_title">AboutFragment</string>
+    <string name="news_list_item_date">Dátum:</string>
+    <string name="news_tab_actual">Aktuális</string>
+    <string name="news_tab_saved">Elmentett</string>
 </resources>
