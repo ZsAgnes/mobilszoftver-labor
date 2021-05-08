@@ -7,7 +7,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import com.example.news.R
-import com.example.news.data.network.model.NewsList
 import com.example.news.ui.news.newscontent.NewsListFragment
 
 class NewsPagerAdapter(
@@ -20,8 +19,8 @@ class NewsPagerAdapter(
             R.string.news_tab_saved))
 
     private val fragments = listOf<RainbowCakeFragment<*, *>>(
-        NewsListFragment(),
-        NewsListFragment()
+        NewsListFragment.newActualInstance(),
+        NewsListFragment.newSavedInstance()
     )
 
     override fun getItemCount() = fragments.count()

@@ -1,9 +1,9 @@
 package com.example.news.ui.news.newscontent
 
-import com.example.news.data.network.model.NewsList
+import com.example.news.ui.news.newscontent.model.UiArticle
 
 sealed class NewsListViewState
 
 object Loading : NewsListViewState()
 
-data class NewsListReady(val data: NewsList?) : NewsListViewState()
+data class NewsListReady(val data: List<UiArticle>) : NewsListViewState()

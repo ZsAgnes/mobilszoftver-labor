@@ -20,7 +20,7 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cikkek"
+                android:text="@string/news_title"
                 android:textColor="@color/white"
                 android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="parent"
