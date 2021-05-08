@@ -16,7 +16,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingBottom="60dp">
 
             <ImageView
                 android:id="@+id/newsDetailsImage"
@@ -101,6 +102,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/newsDetailsDetails"
+                app:layout_constraintBottom_toBottomOf="parent"
                 tools:text="Link a teljes cikkhez" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

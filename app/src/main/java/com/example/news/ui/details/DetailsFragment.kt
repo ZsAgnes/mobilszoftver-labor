@@ -58,7 +58,7 @@ class DetailsFragment : RainbowCakeFragment<DetailsViewState, DetailsViewModel> 
         newsDetailsTitle.text = uiArticle.title
         newsDetailsAuthor.text = uiArticle.author
         newsDetailsDate.text = uiArticle.publishedAt
-        newsDetailsDetails.text = uiArticle.description
+        newsDetailsDetails.text = uiArticle.content
         newsDetailsLink.text = uiArticle.url
 
         if (uiArticle.saved) {
