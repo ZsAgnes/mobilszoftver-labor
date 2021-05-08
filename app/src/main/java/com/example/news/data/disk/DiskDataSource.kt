@@ -3,7 +3,7 @@ package com.example.news.data.disk
 import com.example.news.data.disk.dao.NewsDao
 import com.example.news.data.disk.model.RoomArticle
 import com.example.news.data.disk.model.toRoomArticle
-import com.example.news.data.network.model.Article
+import com.example.news.ui.news.newscontent.model.UiArticle
 import javax.inject.Inject
 
 class DiskDataSource @Inject constructor(
@@ -14,9 +14,11 @@ class DiskDataSource @Inject constructor(
         return newsDao.getAll()
     }
 
-    suspend fun saveArticle(article: Article) {
-        newsDao.saveArticle(
-            article.toRoomArticle()
-        )
+    suspend fun saveArticle(article: UiArticle) {
+        newsDao.saveArticle(article.toRoomArticle())
+    }
+
+    suspend fun deleteArticle(articleId: String) {
+        newsDao.deleteArticleById(articleId)
     }
 }

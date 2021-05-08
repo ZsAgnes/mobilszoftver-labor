@@ -12,4 +12,7 @@ interface NewsDao {
 
     @Insert
     suspend fun saveArticle(article: RoomArticle)
+
+    @Query("DELETE FROM news WHERE id = :articleId")
+    suspend fun deleteArticleById(articleId: String)
 }
