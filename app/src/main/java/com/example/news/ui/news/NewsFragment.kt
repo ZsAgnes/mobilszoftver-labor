@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.View
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.dagger.getViewModelFromFactory
+import co.zsmb.rainbowcake.navigation.navigator
 import com.example.news.R
+import com.example.news.ui.about.AboutFragment
 import com.example.news.ui.news.adapter.NewsPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_news.*
@@ -28,7 +30,7 @@ class NewsFragment :
 
     private fun setupToolbar() {
         toolbarAbout.setOnClickListener {
-            // TODO
+            navigator?.add(AboutFragment())
         }
     }
 

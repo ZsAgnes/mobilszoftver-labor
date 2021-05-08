@@ -3,9 +3,6 @@
 
     <string name="apiKey">3cedc53d3ea34f1d9644f954294493ef</string>
 
-    <string name="details_fragment_title">DetailsFragment</string>
-    <string name="about_fragment_title">AboutFragment</string>
-
     <!-- News -->
 
     <string name="news_fragment_title">NewsFragment</string>
@@ -13,5 +10,14 @@
     <string name="news_tab_actual">Aktuális</string>
     <string name="news_tab_saved">Elmentett</string>
     <string name="news_title">Cikkek</string>
+
+    <!-- News Details -->
+
+    <string name="details_fragment_title">DetailsFragment</string>
     <string name="news_details_delete">Törlés</string>
+
+    <!-- About -->
+
+    <string name="about_fragment_title">AboutFragment</string>
+    <string name="about_description">Ez az alkalmazás azért jött létre, hogy segítse az embereket a tájékozódásban. Manapság nagyon fontossá vált a folyamatosan naprakész információkkal rendelkezzünk és ne maradjunk le a legfrissebb hírekről. Ezáltal ez az applikáció több különböző online újságban megkelent cikket mutat a felhasználónak.</string>
 </resources>
