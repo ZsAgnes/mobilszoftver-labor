@@ -2,8 +2,7 @@ package com.example.news.data.disk.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.news.data.network.model.Article
-import java.util.*
+import com.example.news.ui.news.newscontent.model.UiArticle
 
 @Entity(tableName = "news")
 data class RoomArticle(
@@ -20,14 +19,14 @@ data class RoomArticle(
     val urlToImage: String
 )
 
-fun Article.toRoomArticle() = RoomArticle(
-    id = UUID.randomUUID().toString(),
+fun UiArticle.toRoomArticle() = RoomArticle(
+    id = id,
     author = author,
     content = content,
     description = description,
     publishedAt = publishedAt,
-    sourceId = source.id,
-    sourceName = source.name,
+    sourceId = sourceId,
+    sourceName = sourceName,
     title = title,
     url = url,
     urlToImage = urlToImage

@@ -35,4 +35,5 @@ class MockNewsDao @Inject constructor() : IMockNewsDao {
     }
 
     override suspend fun saveArticle(article: RoomArticle) {}
+    override suspend fun deleteArticleById(articleId: String) {}
 }

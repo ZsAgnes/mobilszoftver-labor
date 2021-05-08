@@ -39,7 +39,7 @@ class DetailsFragment : RainbowCakeFragment<DetailsViewState, DetailsViewModel> 
     }
 
     private lateinit var uiArticle: UiArticle
-    private val liked = false
+    private var liked = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -61,8 +61,27 @@ class DetailsFragment : RainbowCakeFragment<DetailsViewState, DetailsViewModel> 
         newsDetailsDetails.text = uiArticle.description
         newsDetailsLink.text = uiArticle.url
 
+        if (uiArticle.saved) {
+            liked = true
+            newsDetailsSaveButton.setImageResource(R.drawable.ic_heart_fill)
+        } else {
+            liked = false
+            newsDetailsSaveButton.setImageResource(R.drawable.ic_heart_empty)
+        }
+
         newsDetailsSaveButton.setOnClickListener {
-            //TODO
+            if (liked) {
+                newsDetailsSaveButton.setImageResource(R.drawable.ic_heart_empty)
+                viewModel.deleteSavedArticle(uiArticle.id)
+            } else {
+                newsDetailsSaveButton.setImageResource(R.drawable.ic_heart_fill)
+                viewModel.saveArticle(uiArticle)
+            }
+            liked = !liked
+        }
+
+        newsDetailsDeleteButton.setOnClickListener {
+            viewModel.deleteArticle(uiArticle.id)
         }
     }
 
@@ -70,12 +89,6 @@ class DetailsFragment : RainbowCakeFragment<DetailsViewState, DetailsViewModel> 
         val serializable = requireArguments().requireString(UI_ARTICLE)
 
         uiArticle = Json.decodeFromString<UiArticle>(serializable)
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-        viewModel.load()
     }
 
     override fun render(viewState: DetailsViewState) {

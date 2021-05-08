@@ -2,6 +2,7 @@ package com.example.news.ui.news.newscontent.model
 
 import com.example.news.data.disk.model.RoomArticle
 import com.example.news.data.network.model.Article
+import com.example.news.data.network.model.Source
 import kotlinx.serialization.Serializable
 import java.util.*
 
@@ -16,7 +17,8 @@ data class UiArticle(
     val sourceName: String,
     val title: String,
     val url: String,
-    val urlToImage: String
+    val urlToImage: String,
+    val saved: Boolean
 )
 
 fun Article.toUiArticle() = UiArticle(
@@ -29,17 +31,31 @@ fun Article.toUiArticle() = UiArticle(
     sourceName = source.name,
     title = title,
     url = url,
-    urlToImage = urlToImage
+    urlToImage = urlToImage,
+    saved = false
 )
 
 fun RoomArticle.toUiArticle() = UiArticle(
-    id = UUID.randomUUID().toString(),
+    id = id,
     author = author,
     content = content,
     description = description,
     publishedAt = publishedAt,
     sourceId = sourceId,
     sourceName = sourceName,
+    title = title,
+    url = url,
+    urlToImage = urlToImage,
+    saved = true
+)
+
+
+fun UiArticle.toArticle() = Article(
+    author = author,
+    content = content,
+    description = description,
+    publishedAt = publishedAt,
+    source = Source(id = sourceId, name = sourceName),
     title = title,
     url = url,
     urlToImage = urlToImage

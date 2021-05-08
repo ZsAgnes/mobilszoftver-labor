@@ -113,8 +113,9 @@
         android:layout_margin="@dimen/margin_normal"
         android:background="@drawable/background_like_button"
         android:padding="16dp"
-        android:src="@drawable/ic_heart_fill"
+        android:src="@drawable/ic_heart_empty"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/red" />
+        app:tint="@color/red"
+        tools:ignore="ContentDescription" />
 </androidx.constraintlayout.widget.ConstraintLayout>
