@@ -4,11 +4,10 @@ import com.example.news.data.disk.model.RoomArticle
 import com.example.news.data.network.model.Article
 import com.example.news.data.network.model.Source
 import kotlinx.serialization.Serializable
-import java.util.*
 
 @Serializable
 data class UiArticle(
-    val id: String,
+    var id: String,
     val author: String?,
     val content: String?,
     val description: String,
@@ -22,7 +21,7 @@ data class UiArticle(
 )
 
 fun Article.toUiArticle() = UiArticle(
-    id = UUID.randomUUID().toString(),
+    id = "",
     author = author,
     content = content,
     description = description,

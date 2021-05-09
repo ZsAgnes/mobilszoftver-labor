@@ -14,8 +14,10 @@ class DiskDataSource @Inject constructor(
         return newsDao.getAll()
     }
 
-    suspend fun saveArticle(article: UiArticle) {
-        newsDao.saveArticle(article.toRoomArticle())
+    suspend fun saveArticle(article: UiArticle): String {
+        val roomArticle = article.toRoomArticle()
+        newsDao.saveArticle(roomArticle)
+        return roomArticle.id
     }
 
     suspend fun deleteArticle(articleId: String) {

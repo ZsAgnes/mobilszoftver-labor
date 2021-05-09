@@ -20,16 +20,16 @@ class NewsInteractor @Inject constructor(
         return diskDataSource.getAll()
     }
 
-    suspend fun saveNews(article: UiArticle) {
+    suspend fun saveNews(article: UiArticle): String {
         networkDataSource.saveArticle(article.toArticle())
-        diskDataSource.saveArticle(article)
+        return diskDataSource.saveArticle(article)
     }
 
     suspend fun deleteSavedArticle(articleId: String) {
         diskDataSource.deleteArticle(articleId)
     }
 
-    suspend fun deleteNews(id: String) {
-        networkDataSource.deleteArticle(id)
+    suspend fun deleteNews(id: String): Boolean {
+        return networkDataSource.deleteArticle(id)
     }
 }

@@ -1,5 +1,6 @@
 package com.example.news.ui.details
 
+import co.zsmb.rainbowcake.base.OneShotEvent
 import co.zsmb.rainbowcake.base.RainbowCakeViewModel
 import com.example.news.ui.news.newscontent.model.UiArticle
 import javax.inject.Inject
@@ -10,8 +11,10 @@ class DetailsViewModel @Inject constructor(
     Loading
 ) {
 
+    data class RefreshUiArticle(val id: String) : OneShotEvent
+
     fun saveArticle(article: UiArticle) = execute {
-        detailsPresenter.saveNews(article)
+        postEvent(RefreshUiArticle(detailsPresenter.saveNews(article)))
     }
 
     fun deleteArticle(articleId: String) = execute {

@@ -1,8 +1,6 @@
 package com.example.news.data.network
 
 import com.example.news.BuildConfig
-import com.example.news.data.network.api.IMockNewsApi
-import com.example.news.data.network.api.MockNewsApi
 import com.example.news.data.network.api.NewsApi
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.squareup.moshi.Moshi
@@ -48,12 +46,6 @@ abstract class NetworkModule {
         @Singleton
         fun provideNewsApi(retrofit: Retrofit): NewsApi {
             return retrofit.create()
-        }
-
-        @Provides
-        @Singleton
-        fun provideMockNewsApi(): IMockNewsApi {
-            return MockNewsApi()
         }
     }
 }

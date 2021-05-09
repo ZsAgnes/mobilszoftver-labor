@@ -9,7 +9,7 @@ class DetailsPresenter @Inject constructor(
     private val newsInteractor: NewsInteractor
 ) {
 
-    suspend fun saveNews(article: UiArticle) = withIOContext {
+    suspend fun saveNews(article: UiArticle): String = withIOContext {
         newsInteractor.saveNews(article)
     }
 

@@ -3,6 +3,7 @@ package com.example.news.data.disk.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.news.ui.news.newscontent.model.UiArticle
+import java.util.*
 
 @Entity(tableName = "news")
 data class RoomArticle(
@@ -20,7 +21,7 @@ data class RoomArticle(
 )
 
 fun UiArticle.toRoomArticle() = RoomArticle(
-    id = id,
+    id = if (id.isEmpty()) UUID.randomUUID().toString() else id,
     author = author,
     content = content,
     description = description,

@@ -1,10 +1,10 @@
-package com.example.news.data.disk.dao
+package com.example.news.mock
 
+import com.example.news.data.disk.dao.NewsDao
 import com.example.news.data.disk.model.RoomArticle
 import java.util.*
-import javax.inject.Inject
 
-class MockNewsDao @Inject constructor() : IMockNewsDao {
+class MockNewsDao : NewsDao {
     override suspend fun getAll(): List<RoomArticle> {
         return listOf(
             RoomArticle(

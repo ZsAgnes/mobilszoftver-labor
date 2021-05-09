@@ -2,6 +2,7 @@ package com.example.news.ui.details
 
 import android.os.Bundle
 import android.view.View
+import co.zsmb.rainbowcake.base.OneShotEvent
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.dagger.getViewModelFromFactory
 import co.zsmb.rainbowcake.navigation.extensions.applyArgs
@@ -93,6 +94,15 @@ class DetailsFragment : RainbowCakeFragment<DetailsViewState, DetailsViewModel> 
 
     override fun render(viewState: DetailsViewState) {
         // TODO Render state
+    }
+
+    override fun onEvent(event: OneShotEvent) {
+        super.onEvent(event)
+        when (event) {
+            is DetailsViewModel.RefreshUiArticle -> {
+                uiArticle.id = event.id
+            }
+        }
     }
 
 }

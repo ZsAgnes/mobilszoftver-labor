@@ -14,11 +14,6 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField 'String', 'BASE_URL', '"https://newsapi.org/"'
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
-            }
-        }
     }
 
     buildTypes {
@@ -50,6 +45,7 @@ dependencies {
     implementation "co.zsmb:rainbow-cake-dagger:$rainbow_cake_version"
     implementation "co.zsmb:rainbow-cake-navigation:$rainbow_cake_version"
     implementation "co.zsmb:rainbow-cake-timber:$rainbow_cake_version"
+    testImplementation "co.zsmb:rainbow-cake-test:$rainbow_cake_version"
 
     // Coroutines
     def coroutines_version = '1.4.2'
@@ -95,8 +91,19 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glide_version"
     kapt "com.github.bumptech.glide:compiler:$glide_version"
 
+    // Testing
+    def mockito_version = '3.8.0'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation "org.robolectric:robolectric:4.2.1"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:3.1.0"
+    testImplementation "com.google.dagger:dagger:$dagger_version"
+    testImplementation "org.mockito:mockito-inline:$mockito_version"
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0-RC'
+    kaptTest "com.google.dagger:dagger-compiler:$dagger_version"
+    kapt "android.arch.persistence.room:compiler:$room_version"
 
-    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation "org.mockito:mockito-core:$mockito_version"
 }

@@ -1,8 +1,5 @@
 package com.example.news.data.network
 
-import android.content.Context
-import com.example.news.R
-import com.example.news.data.network.api.MockNewsApi
 import com.example.news.data.network.api.NewsApi
 import com.example.news.data.network.model.Article
 import com.example.news.data.network.model.NewsList
@@ -12,23 +9,25 @@ import javax.inject.Singleton
 
 @Singleton
 class NetworkDataSource @Inject constructor(
-    private val newsApi: NewsApi,
-    private val mockNewsApi: MockNewsApi,
-    private val context: Context
+    private val newsApi: NewsApi
 ) {
     suspend fun getAllNews(): NewsList? {
-        return newsApi.getTopHeadlines(country = "hu", apiKey = context.getString(R.string.apiKey))
+        return newsApi.getTopHeadlines(country = "hu", apiKey = "3cedc53d3ea34f1d9644f954294493ef")
+            .body()
     }
 
-    suspend fun saveArticle(article: Article) {
-        mockNewsApi.saveArticle(
+    suspend fun saveArticle(article: Article): Boolean {
+        return newsApi.saveArticle(
             userId = UUID.randomUUID().toString(),
-            apiKey = context.getString(R.string.apiKey),
+            apiKey = "3cedc53d3ea34f1d9644f954294493ef",
             article = article
-        )
+        ).isSuccessful
     }
 
-    suspend fun deleteArticle(newsId: String) {
-        mockNewsApi.deleteArticle(newsId = newsId, apiKey = context.getString(R.string.apiKey))
+    suspend fun deleteArticle(newsId: String): Boolean {
+        return newsApi.deleteArticle(
+            newsId = newsId,
+            apiKey = "3cedc53d3ea34f1d9644f954294493ef"
+        ).isSuccessful
     }
 }

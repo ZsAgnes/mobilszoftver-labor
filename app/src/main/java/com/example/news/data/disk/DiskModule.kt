@@ -2,8 +2,6 @@ package com.example.news.data.disk
 
 import android.content.Context
 import androidx.room.Room
-import com.example.news.data.disk.dao.IMockNewsDao
-import com.example.news.data.disk.dao.MockNewsDao
 import com.example.news.data.disk.dao.NewsDao
 import dagger.Module
 import dagger.Provides
@@ -31,12 +29,6 @@ abstract class DiskModule {
         @Singleton
         fun provideNewsDao(newsDatabase: NewsDatabase): NewsDao {
             return newsDatabase.newsDao()
-        }
-
-        @Provides
-        @Singleton
-        fun provideMockNewsDao(): IMockNewsDao {
-            return MockNewsDao()
         }
     }
 }
